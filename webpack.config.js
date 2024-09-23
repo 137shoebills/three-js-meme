@@ -4,7 +4,7 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 module.exports = {
-  entry: "./src/mythree.js",
+  entry: ["./src/mythree.js"],
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "bundle.js",
@@ -28,14 +28,13 @@ module.exports = {
       patterns: [
         {
           from: path.resolve(__dirname, "public"),
-          to: "public",
         },
       ],
     }),
     new HtmlWebpackPlugin({
       template: "./src/index.html",
       filename: "index.html",
-      inject: "body",
+      inject: true,
     }),
   ],
   devServer: {

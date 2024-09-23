@@ -6,21 +6,36 @@
     <style>
       body {
         margin: 0;
+        overflow: hidden;
       }
-      #mainCanvas {
-        z-index: -1;
+      #loading-page {
         position: absolute;
-        height: 100% !important;
-        width: 100% !important;
+        font: bold 2rem sans-serif;
+        color: white;
+        left: 30%;
+        top: 40%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .progressBar {
+        width: 100%;
+      }
+      #main-canvas-box {
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
       }
       #user-move {
         position: absolute;
+        z-index: 3;
         bottom: 10%;
         left: calc(50% - 7rem);
         visibility: hidden;
       }
       #sound {
         position: absolute;
+        z-index: 2;
         top: 30%;
         left: 30%;
         visibility: hidden;
@@ -63,10 +78,40 @@
         color: rgb(68, 66, 66);
         position: absolute;
       }
+      #no-script {
+        position: absolute;
+        top: 2rem;
+        left: 2rem;
+        padding-right: 2rem;
+        font: bold 1.5rem sans-serif;
+      }
     </style>
-  </head>
+    <script type="module" src="loading.js"></script>
+  <script defer src="bundle.js"></script></head>
   <body>
-    <canvas id="mainCanvas"></canvas>
+    <noscript id="no-script">
+      Sorry, but you need to enable javascript to view this page. Or check code
+      <a
+        href="https://github.com/137shoebills/three-js-meme"
+        target="_blank"
+        title="github"
+      >
+        here
+      </a>
+    </noscript>
+    <div id="loading-page">
+      <progress class="progressBar" value="0" max="0"></progress>
+      <div class="resource-total">
+        资源已加载
+        <span class="loading-num">0</span>
+        /
+        <span class="total-num">0</span>
+        MB
+      </div>
+    </div>
+    <div id="main-canvas-box">
+      <canvas id="main-canvas"></canvas>
+    </div>
     <div id="user-move">
       <svg
         class="dialog-svg-icon move"
@@ -103,16 +148,15 @@
       </svg>
       <audio
         id="meow-sound"
-        src="public/sound/meow/Cat-meowing-loudly-sound-effect.mp3"
+        src="sound/meow/Cat-meowing-loudly-sound-effect.mp3"
         type="audio/mp3"
       ></audio>
       <audio
         id="industry-sound"
-        src="public/sound/industry.ogg"
+        src="sound/industry.ogg"
         type="audio/ogg"
       ></audio>
       <div class="see-sound"></div>
     </div>
-    <!--<script type="module" src="mythree.js"></script>-->
-  <script defer src="bundle.js"></script></body>
+  </body>
 </html>

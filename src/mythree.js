@@ -128,7 +128,7 @@ function loadErrorCB(error) {
   console.error(error);
 }
 // Canvas
-const canvas = document.querySelector("#mainCanvas");
+const canvas = document.querySelector("#main-canvas");
 const scene = new THREE.Scene();
 
 // Size
@@ -237,7 +237,7 @@ function addLilNasX(gltf) {
   folder.add(new PositionGUI(gltf.scene.position, 'z'), 'modify', 0, 200).name('z')*/
   scene.add(gltf.scene);
 }
-loadGLTF("public/model/lil-nas-x/scene.gltf")
+loadGLTF("model/lil-nas-x/scene.gltf")
   .then((gltf) => addLilNasX(gltf))
   .catch((error) => loadErrorCB(error));
 
@@ -251,8 +251,8 @@ function addCat(obj) {
   scene.add(obj);
   nextButton.style.visibility = "visible";
 }
-loadMTL("public/model/black-cat/12222_Cat_v1_l3.mtl")
-  .then((mtl) => loadOBJ("public/model/black-cat/12222_Cat_v1_l3.obj", mtl))
+loadMTL("model/black-cat/12222_Cat_v1_l3.mtl")
+  .then((mtl) => loadOBJ("model/black-cat/12222_Cat_v1_l3.obj", mtl))
   .then((obj) => addCat(obj))
   .catch((error) => loadErrorCB(error));
 
