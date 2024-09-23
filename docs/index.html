@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>something</title>
+    <style>
+      body {
+        margin: 0;
+      }
+      #mainCanvas {
+        z-index: -1;
+        position: absolute;
+        height: 100% !important;
+        width: 100% !important;
+      }
+      #user-move {
+        position: absolute;
+        bottom: 10%;
+        left: calc(50% - 7rem);
+        visibility: hidden;
+      }
+      #sound {
+        position: absolute;
+        top: 30%;
+        left: 30%;
+        visibility: hidden;
+      }
+      #sound .see-sound {
+        display: flex;
+        align-items: center;
+        position: absolute;
+        height: 8rem;
+        width: 10rem;
+        top: 0px;
+        left: 1rem;
+        pointer-events: none;
+      }
+      #sound .see-sound i {
+        flex: 1 1 100%;
+        height: calc(8rem * var(--c) / 360);
+        margin-left: 0.2rem;
+        border-radius: 20%;
+        background: green;
+      }
+      .dialog-svg-icon.move {
+        width: 15rem;
+      }
+
+      .dialog-svg-icon.sound {
+        width: 10rem;
+      }
+
+      .svg-path-click:hover {
+        fill: rgb(229, 227, 227);
+      }
+
+      .text {
+        width: 11rem;
+        left: 2rem;
+        top: 2rem;
+        pointer-events: none;
+        font: bold 1.5rem sans-serif;
+        color: rgb(68, 66, 66);
+        position: absolute;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="mainCanvas"></canvas>
+    <div id="user-move">
+      <svg
+        class="dialog-svg-icon move"
+        style="vertical-align: middle; fill: white; overflow: hidden"
+        viewBox="0 0 1064 1024"
+        version="1.1"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <a class="next" href="#">
+          <path
+            class="svg-path svg-path-click"
+            fill="white"
+            d="M79.629312 696.351744c0 26.628096 22.347776 48.500736 48.975872 48.500736l357.093376 0 215.862272 213.49376 0-213.49376 235.84256 0c27.114496 0 48.498688-21.87264 48.498688-48.500736L985.90208 114.358272c0-26.628096-21.870592-48.495616-48.498688-48.495616L128.605184 65.862656c-28.044288 0-48.975872 21.86752-48.975872 48.495616L79.629312 696.351744z"
+          />
+        </a>
+      </svg>
+      <div class="text">what is the thing in front of me, bro?</div>
+    </div>
+    <div id="sound">
+      <svg
+        class="dialog-svg-icon sound"
+        style="vertical-align: middle; fill: white; overflow: hidden"
+        viewBox="0 0 1064 1024"
+        version="1.1"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <a class="talk" href="#">
+          <path
+            class="svg-path"
+            fill="white"
+            d="M79.629312 696.351744c0 26.628096 22.347776 48.500736 48.975872 48.500736l357.093376 0 215.862272 213.49376 0-213.49376 235.84256 0c27.114496 0 48.498688-21.87264 48.498688-48.500736L985.90208 114.358272c0-26.628096-21.870592-48.495616-48.498688-48.495616L128.605184 65.862656c-28.044288 0-48.975872 21.86752-48.975872 48.495616L79.629312 696.351744z"
+          />
+        </a>
+      </svg>
+      <audio
+        id="meow-sound"
+        src="public/sound/meow/Cat-meowing-loudly-sound-effect.mp3"
+        type="audio/mp3"
+      ></audio>
+      <audio
+        id="industry-sound"
+        src="public/sound/industry.ogg"
+        type="audio/ogg"
+      ></audio>
+      <div class="see-sound"></div>
+    </div>
+    <!--<script type="module" src="mythree.js"></script>-->
+  <script defer src="bundle.js"></script></body>
+</html>
